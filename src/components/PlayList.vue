@@ -1,8 +1,6 @@
 <template>
   <div>
-    <song-list>
-      <h1 ref="song_clicked" @user_clicked="show_playlist_song"></h1>
-    </song-list>
+    <section ref="song_clicked" class="songs_clicked"></section>
   </div>
 </template>
 
@@ -10,7 +8,11 @@
 export default {
   methods: {
     show_playlist_song(song_title) {
-      this.$refs[`song_clicked`][`innerText`] = song_title;
+      let selected_songs = document.querySelector(`songs_clicked`);
+      selected_songs.insertAdjacentHTML(
+        `afterbegin`,
+        `<h1 class="songs_clicked">${song_title}</h1>`
+      );
     },
   },
 

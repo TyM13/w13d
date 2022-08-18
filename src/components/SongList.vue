@@ -1,12 +1,7 @@
 <template>
   <div>
-    <div
-      ref="song_container"
-      v-for="song in songs"
-      :key="song[`song_id`]"
-      @click="add_to_playlist"
-    >
-      <h1>{{ song[`title`] }}</h1>
+    <div ref="song_container" v-for="song in songs" :key="song[`song_id`]">
+      <h1 @click="add_to_playlist">{{ song[`title`] }}</h1>
 
       <h2>
         {{ song[`artist`] }}
