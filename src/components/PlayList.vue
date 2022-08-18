@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section ref="song_clicked" class="songs_clicked"></section>
+    <section class="songs_clicked"><h1>Play List</h1></section>
   </div>
 </template>
 
@@ -8,10 +8,10 @@
 export default {
   methods: {
     show_playlist_song(song_title) {
-      let selected_songs = document.querySelector(`songs_clicked`);
+      let selected_songs = document.querySelector(`.songs_clicked`);
       selected_songs.insertAdjacentHTML(
-        `afterbegin`,
-        `<h1 class="songs_clicked">${song_title}</h1>`
+        `beforeend`,
+        `<h3 class="songs_clicked">${song_title}</h3>`
       );
     },
   },
@@ -23,4 +23,8 @@ export default {
 </script>
 
 <style scoped>
+section {
+  display: grid;
+  place-items: center;
+}
 </style>
