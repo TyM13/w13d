@@ -11,16 +11,16 @@
   </div>
 </template>
 
-<script>
-export default {
-  methods: {
-    add_to_playlist(details) {
+<script>                                              // (above) a for loop that loops through songs, through the key song[song_id] // added a click that calls the function add_to_playlist when the song title is clicked
+export default {                                      // (below) function that gets the info of details target innertext and sets it to song_title
+  methods: {                                          // takes song title and emits it so other components can get the info if user_clicked is used
+    add_to_playlist(details) {                        
       let song_title = details[`target`][`innerText`];
       this.$root.$emit(`user_clicked`, song_title);
     },
   },
 
-  data() {
+  data() {                                            // array of objects that contain key:value pairs
     return {
       songs: [
         {
@@ -48,4 +48,7 @@ export default {
 </script>
 
 <style scoped>
+img {
+  width: 200px;
+}
 </style>
